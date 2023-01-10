@@ -1,0 +1,22 @@
+.parcelForm {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.alive {
+  background-color: green;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+}
+
+.dead {
+  background-color: #eaeaea;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+}
