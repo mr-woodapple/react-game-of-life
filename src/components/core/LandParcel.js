@@ -61,16 +61,16 @@ export class LandParcel {
                     }
 
                     // update the neighbors count
-                    neighbors = neighbors + gridCopy[newX][newY].status
+                    neighbors = neighbors + grid[newX][newY].status
                 })
 
                 // update the cell status depending on the neighbor count
                 if (neighbors < 2 || neighbors > 3) {
                     gridCopy[x][y].status = 0
-                    console.log('cell died at ', x, y, 'status is now = ', gridCopy[x][y].status)
-                } else if (2 < neighbors < 3) {
+                    //console.log('cell died at ', x, y, 'status is now = ', gridCopy[x][y].status)
+                } else if (1 < neighbors < 4) {
                     gridCopy[x][y].status = 1
-                    console.log('cell is alive at ', x, y, 'status is now = ', gridCopy[x][y].status)
+                    //console.log('cell is alive at ', x, y, 'status is now = ', gridCopy[x][y].status)
                 }
 
             }
