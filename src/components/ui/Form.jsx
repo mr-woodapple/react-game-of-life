@@ -18,12 +18,18 @@ export const Form = ({ grid, setGrid }) => {
 
             <div className="parcelForm">
                 {grid.map((row, x) => row.map((col, y) => (
-                    <div className={grid[x][y].status ? "alive" : "dead"} onClick={() => giveInfo(grid[x][y], x, y)}/>
+                    <div 
+                        key={[x, y]}
+                        className={grid[x][y].status ? "alive" : "dead"} 
+                        onClick={() => giveInfo(grid[x][y], x, y)}
+                    />
                     ))
                 )}
             </div>
 
-            <input type="submit" value="Start" className="btn btn-danger btn-block" onClick={handleInput}></input>
+            <div class="d-grid gap-2 col-2 mx-auto">
+                <input type="submit" value="Start" className="btn btn-danger btn-block" onClick={handleInput}></input>
+            </div>
           </form>
     )
 }

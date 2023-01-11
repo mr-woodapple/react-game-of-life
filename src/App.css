@@ -1,4 +1,7 @@
 .parcelForm {
+  width: 600px;
+  margin: auto;
+  align-content: center;
   margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
