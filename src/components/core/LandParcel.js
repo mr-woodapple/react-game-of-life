@@ -12,6 +12,7 @@ export class LandParcel {
             rows.push(Array.from(Array(20), () => new LandParcel((Math.random() > 0.9 ? 1 : 0)))); 
         }
         
+        console.log(rows)
         return rows;
     }
 
@@ -64,14 +65,22 @@ export class LandParcel {
                     neighbors = neighbors + grid[newX][newY].status
                 })
 
-                // update the cell status depending on the neighbor count
-                if (neighbors < 2 || neighbors > 3) {
-                    gridCopy[x][y].status = 0
-                    //console.log('cell died at ', x, y, 'status is now = ', gridCopy[x][y].status)
-                } else if (1 < neighbors < 4) {
-                    gridCopy[x][y].status = 1
-                    //console.log('cell is alive at ', x, y, 'status is now = ', gridCopy[x][y].status)
+                // check if cell is active or dead -> rules what happens to the cell change depending on that!!
+                if (grid[x][y].status === 1) {
+                    // update the cell status depending on the neighbor count
+                    if (neighbors < 2 || neighbors > 3) {
+                        gridCopy[x][y].status = 0
+                        //console.log('cell died at ', x, y, 'status is now = ', gridCopy[x][y].status)
+                    } else if (1 < neighbors < 4) {
+                        gridCopy[x][y].status = 1
+                        //console.log('cell is alive at ', x, y, 'status is now = ', gridCopy[x][y].status)
+                    }
+                } else {
+                    if (neighbors === 3) {
+                        gridCopy[x][y].status = 1
+                    }
                 }
+                
 
             }
         }
@@ -84,6 +93,496 @@ export class LandParcel {
 
     static waitBeforeCalcNextStep() {
         setTimeout(this.renderNextStep, "1000")
+    }
+
+    static createSpecificForm() {
+
+        const rows = [];
+
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        rows.push(Array.from(
+            [
+                {"status": 1},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 1},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+                {"status": 0},
+            ]
+        )); 
+        
+        
+        return rows;
+        
     }
 
 }
